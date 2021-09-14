@@ -3,15 +3,22 @@ class ApplicationController < Sinatra::Base
   
   # Add your routes here
   get "/" do
-    { message: "Good luck with your project!" }.to_json
+    { message: "Hello from Home!" }.to_json
   end
 
-  get "/nav1" do
-    { message: "Hello from nav1!" }.to_json
+  get "/patients" do
+    patients = Patient.all
+    patients.to_json(include: :doctor)
   end
-
+  
   get "/nav2" do
     { message: "Hello from nav2!" }.to_json
   end
+  
+  get "/login" do
+    { message: "Hello login!",
+      message2: "Hi login!" }.to_json
+  end
 
 end
+
