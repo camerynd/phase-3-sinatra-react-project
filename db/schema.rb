@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_14_184752) do
+ActiveRecord::Schema.define(version: 2021_09_15_150943) do
+
+  create_table "appointments", force: :cascade do |t|
+    t.string "reason_for_visit"
+    t.string "date"
+    t.string "time"
+    t.integer "patient_id"
+  end
 
   create_table "doctors", force: :cascade do |t|
     t.string "name"
     t.string "specialty"
     t.string "username"
     t.string "password"
+    t.boolean "current_user"
   end
 
   create_table "patients", force: :cascade do |t|
