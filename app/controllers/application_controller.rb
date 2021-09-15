@@ -26,5 +26,26 @@ class ApplicationController < Sinatra::Base
     appointments.to_json(include: :patient)
   end
 
+  post '/patients' do
+    patient = Patient.create(
+      name: params[:name],
+      medical_history: params[:medical_history],
+      insured: params[:insured],
+      age: params[:age],
+      doctor_id: params[:doctor_id]
+    )
+    patient.to_json
+  end
+
+  delete '/patients/:id' do
+    patient = Patient.find(params[:id])
+    patient.destroy
+
+    doctor = Doctor.current_doctor
+    patients = doctor.patients
+    patients.to_json
+
+  end
+
 end
 
