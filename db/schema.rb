@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_15_150943) do
+ActiveRecord::Schema.define(version: 2021_09_16_192028) do
 
   create_table "appointments", force: :cascade do |t|
     t.string "reason_for_visit"
@@ -25,6 +25,12 @@ ActiveRecord::Schema.define(version: 2021_09_15_150943) do
     t.string "username"
     t.string "password"
     t.boolean "current_user"
+    t.string "location"
+    t.string "phone_number"
+    t.integer "been_in_practice_for"
+    t.string "reminders"
+    t.string "awards"
+    t.string "image_link"
   end
 
   create_table "patients", force: :cascade do |t|
